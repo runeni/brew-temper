@@ -14,6 +14,11 @@ get '/measure/:at' do
   Measure.find_by_created_at(params[:at]).to_json
 end
 
-get '/last' do
+get '/last.json' do
   Measure.last.to_json
+end
+
+get '/last' do
+  m = Measure.last
+  "<h1>#{m.created_at} : #{m.temp}</h1>"
 end
