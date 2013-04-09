@@ -1,4 +1,4 @@
 templogger-rest
 ===============
 
-REST API to fetch temperatures read by temper USB
+Sinatra REST API to fetch temperatures read by temper USB
