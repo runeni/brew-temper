@@ -9,7 +9,7 @@ end
 
 get '/measures.json' do
   content_type :json
-  Measure.where("created_at >= '2013-04-06 19:30'").all.to_json
+  Measure.all.to_json
 end
 
 get '/measure/:at' do
