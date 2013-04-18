@@ -21,6 +21,11 @@ get '/last.json' do
   Measure.last.to_json
 end
 
+get '/measures/:created_at/after.json' do
+  content_type :json
+  Measure.where("created_at >= '#{params[:created_at]}'").all.to_json
+end
+
 get '/last' do
   m = Measure.last
   "<h1>#{m.created_at} : #{m.temp}</h1>"
