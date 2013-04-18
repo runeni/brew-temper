@@ -1,5 +1,6 @@
 require "sinatra"
 require "sinatra/activerecord"
+require "time"
 
 set :database, "sqlite3:///temper.db"
 
@@ -23,7 +24,8 @@ end
 
 get '/measures/:created_at/after.json' do
   content_type :json
-  Measure.where("created_at >= '#{params[:created_at]}'").all.to_json
+  created_at = Time.parse(params[:created_at]).gmtime
+  Measure.where("created_at >= '#{created_at}'").all.to_json
 end
 
 get '/last' do
