@@ -24,7 +24,7 @@ end
 
 get '/measures/:created_at/after.json' do
   content_type :json
-  created_at = Time.parse(params[:created_at]).gmtime
+  created_at = Time.parse(params[:created_at])
   Measure.where("created_at >= '#{created_at}'").all.to_json
 end
 
