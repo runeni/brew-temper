@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Bryggetemperatur</title>
+    <link rel="stylesheet" href="/stylesheets/demo.css" type="text/css"></link>
+    <link rel="stylesheet" href="/stylesheets/brew.css" type="text/css"></link>
+    <script type="text/javascript" src="/javascripts/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="/javascripts/flot/jquery.flot.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ujs.js"></script>
+    <script type="text/javascript" src="/javascripts/brew.js"></script>
+    <!-- script type="text/javascript">
+      $(document).ready(function() {
+        plotTemperatures(<%= @temps.to_json %>);
+      });
+    </script -->
+<head>
+  <body>
+    <h1>Bryggtemperatur</h1>
+    <h3>Siste:  <%= @temps.first.temp %></h3>
+    <table>
+      <% @temps.each do |t| %>
+        <tr>
+          <td><%= t.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= t.temp %></td>
+        </tr>
+      <% end %>
+    </table>
+    <h3>M&aring;linger <%= @temps.first.created_at.strftime("%Y-%m-%d %H:%M") %> - <%= @temps.last.created_at.strftime("%Y-%m-%d %H:%M") %></h3>
+    <a href="/measures/2013-09-14/after.json" class="templink" data-remote="true">Hent data</a>
+    <img id="ajax-loader" src="/images/ajax-loader-star.gif" />
+    <div id="placeholder" style="width:1024px;height:600px"></div>
+  </body>
+</html>

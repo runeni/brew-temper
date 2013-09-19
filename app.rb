@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/activerecord"
 require "time"
+require "pp"
 
 set :database, "sqlite3:///temper.db"
 
@@ -31,4 +32,15 @@ end
 get '/last' do
   m = Measure.last
   "<h1>#{m.created_at} : #{m.temp}</h1>"
+end
+
+get '/graph' do
+  # @temps = Measure.where("created_at > '2013-09-14'").all
+  #@temps = Measure.where("created_at > '2013-09-14' and created_at like '%:00'").all
+  @temps = Measure.where("created_at > '2013-09-14' and created_at like '%0'").order("id desc").limit(5)
+  erb :graph
+end
+
+get '/countries' do
+  erb :countries
 end

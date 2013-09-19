@@ -1,0 +1,16 @@
+Requirements
+------------
+
+Sinatra
+Sqlite
+Jquery
+Jquery-ujs
+Jquery-ui
+Flot: http://www.flotcharts.org/
+
+Place files in the following structure:
+public/javascripts/jquery-2.0.3.min.js
+public/javascripts/jquery-ui-1.9.2.min.js
+public/javascripts/jquery-ujs.js
+public/javascripts/flot/
+public/stylesheets/demo.css
