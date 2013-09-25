@@ -1,0 +1,10 @@
+#!/usr/bin/env perl
+
+# Deliver temper like output but with random temperatures.
+# Useful while testing.
+
+use strict;
+use POSIX qw(strftime);
+my $temp = rand(12) + 8;
+
+printf("%s,%f\n", strftime("%d-%m-%Y %H:%M", localtime), $temp);
