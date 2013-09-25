@@ -1,5 +1,6 @@
 REQUIREMENTS
 ------------
+Linux (you may get it to work on OSX to)
 Ruby
 Perl >= 5.10
 Sinatra
@@ -30,7 +31,7 @@ Read the instructions in the README file.
 
 NOTE: You may need to use different values in 60-temper.rules.
 
-Use lsusb to to find out and put in the right values for idVendor and idProduct:
+Plug in the temper USB stick and use lsusb to to find out and put in the right values for idVendor and idProduct:
 $ lsusb
 Bus 001 Device 062: ID 0c45:7401 Microdia 
 
