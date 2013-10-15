@@ -22,14 +22,15 @@
     <table>
       <% @temps.each do |t| %>
         <tr>
-          <td><%= t.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= t.nice_time %></td>
           <td><%= t.temp %></td>
         </tr>
       <% end %>
     </table>
     <h3>M&aring;linger <%= @temps.first.created_at.strftime("%Y-%m-%d %H:%M") %> - <%= @temps.last.created_at.strftime("%Y-%m-%d %H:%M") %></h3>
-    <a href="/measures/2013-09-14/after.json" class="templink" data-remote="true">Hent data</a>
+    <a href="/measures/2013-10-12/after.json" class="templink" data-remote="true">Hent data</a>
     <img id="ajax-loader" src="/images/ajax-loader-star.gif" />
     <div id="placeholder" style="width:1024px;height:600px"></div>
+    <div id="tempcontainer"></div>
   </body>
 </html>
