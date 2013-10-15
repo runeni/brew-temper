@@ -1,0 +1,2 @@
+# Log temperature every 5 minutes
+*/5 * * * * /home/pi/gits/templogger/temp.pl

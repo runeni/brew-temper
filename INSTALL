@@ -1,16 +1,56 @@
-Requirements
+REQUIREMENTS
 ------------
-
+Linux (you may get it to work on OSX to)
+Ruby
+Perl >= 5.10
 Sinatra
 Sqlite
 Jquery
 Jquery-ujs
 Jquery-ui
 Flot: http://www.flotcharts.org/
+Temper (A command line sensor logger for Temper1 devices)
 
-Place files in the following structure:
+Place files in the following folders:
 public/javascripts/jquery-2.0.3.min.js
 public/javascripts/jquery-ui-1.9.2.min.js
 public/javascripts/jquery-ujs.js
 public/javascripts/flot/
 public/stylesheets/demo.css
+
+
+INSTRUCTIONS
+------------
+
+1 Download and setup temper
+
+$ git clone git://github.com/bitplane/temper.git.
+$ cd temper
+
+Read the instructions in the README file.
+
+NOTE: You may need to use different values in 60-temper.rules.
+
+Plug in the temper USB stick and use lsusb to to find out and put in the right values for idVendor and idProduct:
+$ lsusb
+Bus 001 Device 062: ID 0c45:7401 Microdia 
+
+This would give the following setting:
+ATTR{idVendor}=="0c45", ATTR{idProduct}=="7401", OWNER="root", GROUP="temper", MODE="0660"
+
+
+2 Edit help scripts
+
+Edit scripts/temp.pl and set the right paths for the temper binary and sqlite database file. 
+You may also want to edit scripts/dump.pl to be able to dump the database to console.
+
+
+3 Add cronjob
+
+Add a cronjob to store temperatures in the database on a regular basis. 
+You can use config/crontab.sample as an example.
+To edit cronjobs:
+$ crontab -e
+
+
+TO BE CONTINUED...
